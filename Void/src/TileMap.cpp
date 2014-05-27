@@ -73,15 +73,15 @@ namespace GameEngine {
 					}
 				}
 
-				//#ifdef DEBUG_MODE
+				#ifdef DEBUG_MODE
 					std::cout << "============= ( TileMap ) ===============" << std::endl;
 					std::cout << "+ MAP WIDHT:  " << this->mapWidth << std::endl;
 					std::cout << "+ MAP HEIGHT: " << this->mapHeight << std::endl;
 					std::cout << "+ MAP DEPHT:  " << this->mapDepth << std::endl;
 					std::cout << "+ TIL WIDTH:  " << this->mapTileWidth << std::endl;
-					std::cout << "+ MAP HEIGHT: " << this->mapTileHeight << std::endl;
+					std::cout << "+ TIL HEIGHT: " << this->mapTileHeight << std::endl;
 					std::cout << "=========================================" << std::endl;
-				//#endif 
+				#endif 
 
 				//  enquanto !(fim do arquivo) - DEPTH
 				for( tempProf = 0; tempProf < this->mapDepth; ++tempProf )

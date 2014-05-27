@@ -57,6 +57,21 @@ namespace States{
 		//	senão
 		//		call enemy->Render
 		//		call player->Render
+		
+		/* ALTERNATIVA 01 */
+		/*
+		for i=0
+			for j=i+1
+				comparar diferenca posicao X
+				se < spr[i].w + spr[j].w
+					comparar dif posicao Y
+					se < spr[i].h + spr[j].h
+						( spr[i].h > spr[j].h)? spr[j]->render() : spr[i]->render();
+					endif
+				endif
+			endfor
+		endfor
+		*/
 	}
 
 }
