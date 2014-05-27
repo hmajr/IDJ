@@ -15,7 +15,6 @@
     <ClInclude Include="inc\Bullet.hpp" />
     <ClInclude Include="inc\Camera.hpp" />
     <ClInclude Include="inc\Collision.hpp" />
-    <ClInclude Include="inc\Debug.hpp" />
     <ClInclude Include="inc\Game.hpp" />
     <ClInclude Include="inc\GameObject.hpp" />
     <ClInclude Include="inc\InputManager.hpp" />
@@ -42,7 +41,6 @@
     <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Collision.cpp" />
-    <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
