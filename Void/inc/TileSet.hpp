@@ -11,6 +11,7 @@ class TileSet {
 
 	/* CONSTUTOR */
 	public:
+
 		virtual ~TileSet();
 
 	/* METODOS */

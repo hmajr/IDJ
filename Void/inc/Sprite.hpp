@@ -3,8 +3,8 @@
 #include <vector>
 #include <unordered_map> //tabela hash
 #include "Point.hpp"
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
+#include "SDL.h"
+#include "SDL_image.h"
 #include "Game.hpp"
 #include "Resource.hpp"
 
@@ -82,8 +82,9 @@ class Sprite
 		 * @param x 	Posicao X do ponto supoerior esquerdo da textura a ser renderizada
 		 * @param y 	Posicao Y do ponto supoerior esquerdo da textura a ser renderizada
 		 * @param angle Angulo de rotacao (rad)
+		 * @param flip  Sprite esta espelhado
 		 */
-		void Render( int x = 0, int y = 0, float angle = 0);
+		void Render( int x = 0, int y = 0, float angle = 0, bool flip = false);
 
 
 		/* GET/SET */

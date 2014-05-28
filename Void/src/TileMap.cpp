@@ -25,8 +25,8 @@ namespace GameEngine {
 		TileMap::TileMap( std::string &file, TileSet *tileSet )
 			: tileSet( tileSet )
 		{
-
 			this->Load( file );
+			
 		}
 
 	/* METODOS */
@@ -45,7 +45,6 @@ namespace GameEngine {
 			}
 			else
 			{
-
 				mapFile >> this->mapWidth;
 				mapFile >> dump; //lixo
 								
@@ -78,8 +77,8 @@ namespace GameEngine {
 					std::cout << "+ MAP WIDHT:  " << this->mapWidth << std::endl;
 					std::cout << "+ MAP HEIGHT: " << this->mapHeight << std::endl;
 					std::cout << "+ MAP DEPHT:  " << this->mapDepth << std::endl;
-					std::cout << "+ TIL WIDTH:  " << this->mapTileWidth << std::endl;
-					std::cout << "+ TIL HEIGHT: " << this->mapTileHeight << std::endl;
+					std::cout << "+ TIL WIDTH:  " << this->tileSet->GetTileWidth() << std::endl;
+					std::cout << "+ TIL HEIGHT: " << this->tileSet->GetTileHeight()<< std::endl;
 					std::cout << "=========================================" << std::endl;
 				#endif 
 

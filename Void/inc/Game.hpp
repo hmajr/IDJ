@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stack>
 #include <memory>
+#include <ctime>
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_mixer.h"

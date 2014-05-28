@@ -8,7 +8,7 @@ namespace GameEngine
 	/* CONSTRUTOR */
 	Game::Game( std::string title, int width, int height)
 	{
-		srand48( time(NULL) ); //srand que recebe long
+		srand( time(NULL) ); //srand que recebe long
 		this->frameStart = 0;
 		this->dt = 0;
 		this->storedState = NULL;

@@ -5,7 +5,7 @@
 #include <vector>
 #include "BlockTileSet.hpp"
 
-// using GameEngine::TileSet;
+using GameEngine::TileSet;
 
 namespace GameEngine 
 {
@@ -25,7 +25,7 @@ class TileMap
 	/* CONSTRUTORES */
 	public:
 		TileMap( int mapWidth = 0, int mapHeight = 0, int layers = 0, TileSet* tileSet = NULL );
-		TileMap( std::string &file, TileSet* tileSet = NULL );
+		TileMap(std::string &file, TileSet* tileSet = NULL );
 
 	/* METODOS */
 	public:

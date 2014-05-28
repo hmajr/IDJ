@@ -4,7 +4,6 @@ namespace GameEngine {
 /* CLASSE - BlockTileSet */
 	/* CONSTRUTORES */
 		BlockTileSet::BlockTileSet( int tileWidth, int tileHeight, std::string file )
-			// : tileWidth( tileWidth ), tileHeight( tileHeight )
 		{
 			this->tileWidth = tileWidth;
 			this->tileHeight = tileHeight;

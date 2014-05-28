@@ -101,10 +101,11 @@ namespace GameEngine {
 	}
 
 	// Renderiza texture na tela de jogo
-	void Sprite::Render( int x, int y, float angle ) 
+	void Sprite::Render( int x, int y, float angle, bool flip)
 	{
 		SDL_Rect dstrect;
 		angle = (angle*180)/PI;
+
 
 		dstrect.x = x * this->scaleX;
 		dstrect.y = y * this->scaleY;
@@ -115,7 +116,7 @@ namespace GameEngine {
 		// std::cout<< "clipRect W: "<< clipRect.w <<",H: " << clipRect.h <<std::endl;
 
 		SDL_RenderCopyEx( Game::GetInstance().GetRenderer(), texture, &clipRect, &dstrect,
-						  angle, NULL, SDL_FLIP_NONE );
+						  angle, NULL, (flip)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE );
 	}
 
 	/* GET/SET */

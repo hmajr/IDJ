@@ -6,10 +6,11 @@ namespace GameEngine
 class GameObject 
 {
 	/* ATRIBUTOS */
-    protected:
-        bool isCollided;
+    //protected:
+    //    bool isCollided;
 	public:
 		Geometry::Rect box; //posicao e dimensao do objeto
+		bool isFlipped; //espelha sprite
 		float rotation = 0;
 
 	/* CONSTUTOR */
