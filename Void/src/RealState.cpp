@@ -65,14 +65,14 @@ namespace States {
 					{
 						if (this->objectArray[i]->Is("NPC"))
 						{
-							std::cout << "CHANGE WORLD" << std::endl;
-							//NPC* temp = static_cast<NPC*>(this->objectArray[i]);
-							//switch ( temp->GetType() )
-							//{
-							//	case NPC::NpcType::IRMA:
-							//		std::cout << " ESTAGIO DO IRMA" << std::endl;
-							//		//Game::GetInstance().Push(new TristeState);
-							//		break;
+							//std::cout << "CHANGE WORLD" << std::endl;
+							/*NPC* temp = static_cast<NPC*>(this->objectArray[i]);
+							switch ( temp->GetType() )
+							{
+								case NPC::NpcType::IRMA:*/
+									std::cout << " ESTAGIO DO IRMA" << std::endl;
+									Game::GetInstance().Push(new TristeState);
+									//break;
 							//	case NPC::NpcType::PAI:
 							//		std::cout << " ESTAGIO DO PAI" << std::endl;
 							//		//Game::GetInstance().Push(new StageState);

@@ -17,21 +17,19 @@ namespace GameEngine {
 		this->SetFrameTime();
 	}
 	
-	Sprite::Sprite( std::string& file, int frameCount, float frameTime )//Carrega textura do arquivo
+	Sprite::Sprite( std::string& file, int numFramesColunm, int numFramesLine, float frameTime )//Carrega textura do arquivo
+		:numFramesLine(numFramesLine), numFramesColunm( numFramesColunm )
 	{
         //num de frames
-        this->frameCount = frameCount;
         this->frameTime = frameTime;
 
-        this->texture = NULL;
+        
+		this->texture = NULL;
         this->Open( file ); // carrega textura
 
-        this->numFramesLine = this->dimensions.w / clipRect.w;
-//        this->numFramesColunm = this->dimensions.h / clipRect.h;
+        this->frameCount = numFramesColunm * numFramesLine;
 
-        // calcula largura/altura de um frame
-        this->clipRect.w = (this->dimensions.w / this->frameCount);
-        this->clipRect.h = this->dimensions.h;
+		this->SetClip(0, 0, (this->dimensions.w / this->numFramesColunm), (this->dimensions.h / this->numFramesLine) );
 	} 
 	
 	// destroy loaded sprite file 	
@@ -64,8 +62,6 @@ namespace GameEngine {
 
         /*resource*/
         this->resource.data.texture = this->texture;
-
-        this->SetClip( 0, 0, this->dimensions.w , this->dimensions.h);
 	}
 
 	// Set retangulo de recorte da imagem a ser renderizada
@@ -82,21 +78,19 @@ namespace GameEngine {
 	{
 		this->timeElapsed += dt;
 
-		// std::cout<<"TimeElapsed " << this->timeElapsed << std::endl;
+		 //std::cout<<"TimeElapsed " << this->timeElapsed << std::endl;
 
 		if( this->timeElapsed >= this->frameTime )
 		{
 			currentFrame = (currentFrame + 1) % this->frameCount;
 
-// std::cout<<"ENTROU IF ANIMATION, frame: " << this->currentFrame << std::endl;
-// std::cout<<"FRAME, w: " << this->clipRect.w << std::endl;
+ std::cout<<"ENTROU IF ANIMATION, frame: " << this->currentFrame << std::endl;
+ std::cout<<"FRAME, w: " << this->clipRect.w << std::endl;
 			// calcula posicao do retangulo de recorte
-			this->clipRect.x = (this->currentFrame * this->clipRect.w) % this->GetWidth();
-			this->clipRect.y = (this->currentFrame / this->clipRect.w) * this->GetFrameHeight() % this->GetHeight();
-
+			this->clipRect.x = (this->currentFrame % this->numFramesColunm ) * this->GetFrameWidth();
+			this->clipRect.y = (this->currentFrame / this->numFramesColunm ) * this->GetFrameHeight(); //% this->GetHeight();
 
 			this->timeElapsed = 0;
-
 		}
 	}
 
@@ -115,7 +109,7 @@ namespace GameEngine {
 		
 		// std::cout<< "clipRect W: "<< clipRect.w <<",H: " << clipRect.h <<std::endl;
 
-		SDL_RenderCopyEx( Game::GetInstance().GetRenderer(), texture, &clipRect, &dstrect,
+		SDL_RenderCopyEx( Game::GetInstance().GetRenderer(), this->texture, &clipRect, &dstrect,
 						  angle, NULL, (flip)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE );
 	}
 

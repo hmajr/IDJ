@@ -7,8 +7,8 @@ namespace Objects
 	Player *Player::player = NULL;
 
 	Player::Player( float initX, float initY )
-		: idleAnim(m_ANIM_IDLE_PATH), walkSide(m_ANIM_WALK_SIDE_PATH), 
-		  walkUp(m_ANIM_WALK_UP_PATH), walkDown(m_ANIM_WALK_DOWN_PATH),
+		: idleAnim( m_ANIM_IDLE_PATH ), walkSide(m_ANIM_WALK_SIDE_PATH, 4, 6, 0.033f), 
+		  walkUp(m_ANIM_WALK_UP_PATH, 4, 6, 0.033f), walkDown(m_ANIM_WALK_DOWN_PATH, 4, 6, 0.033f),
 		  currentAnimation(idleAnim)
 	{
 		Player::player = this;
@@ -36,13 +36,13 @@ namespace Objects
 		/* MOVIMENTACAO */
 		if ((InputManager::GetInstance()).IsKeyDown(A_KEY)) {
 			this->speed.x -= m_ACELERATION*dt;
-			this->isFlipped = false;
+			this->isFlipped = true;
 			//set animation
 			this->currentAnimation = this->walkSide;
 		}
 		else if ((InputManager::GetInstance()).IsKeyDown(D_KEY)) {
 			this->speed.x += m_ACELERATION*dt;
-			this->isFlipped = true;
+			this->isFlipped = false;
 			//set animation
 			this->currentAnimation = this->walkSide;
 		}
@@ -57,12 +57,19 @@ namespace Objects
 			//set animation DOWN
 			this->currentAnimation = this->walkDown;
 		}
-
+		if ((InputManager::GetInstance()).IsKeyDown(A_KEY) ||
+			(InputManager::GetInstance()).IsKeyDown(D_KEY) ||
+			(InputManager::GetInstance()).IsKeyDown(W_KEY) ||
+			(InputManager::GetInstance()).IsKeyDown(S_KEY) )
+		{
+			//set animation IDLE
+			this->currentAnimation = this->idleAnim;
+			this->speed = (0, 0);
+			this->currentAnimation.SetFrame();
+		}
 		this->box.x += this->speed.x;
 		this->box.y += this->speed.y;
 		
-		this->currentAnimation = this->idleAnim;
-		this->speed = (0, 0);
 		
 		//calcula velocidade
 		//this->speed += m_ACELERATION * dt;

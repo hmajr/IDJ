@@ -32,7 +32,7 @@ class Sprite
         float timeElapsed; //tempo transcorrido desde ultimo frame
         float frameTime; //segundos por frame
         int numFramesLine; // numero de frames por linha
-        // int numFramesColunm; //numero de frames por coluna
+         int numFramesColunm; //numero de frames por coluna
 
 
 		
@@ -47,7 +47,7 @@ class Sprite
 		 * Carrega textura do arquivo
 		 * @param file Caminho da imagem
 		 */
-		Sprite( std::string& file, int frameCount = 1, float frameTime = 1 );
+		Sprite(std::string& file, int numFramesColunm = 1, int numFramesLine = 1, float frameTime = 1.0f);
 
 		/**
 		 * Desaloca textura
@@ -93,12 +93,12 @@ class Sprite
 		 * Seta frame de spritesheet
 		 * @param frame Indice do frame
 		 */
-		void SetFrame( int frame );
+		void SetFrame(int frame = 0);
 		/**
 		 * Seta contador de frames
 		 * @param frameCount [description]
 		 */
-		void SetFrameCount( int frameCount = 0 );
+		void SetFrameCount(int frameCount = 0);
 		/**
 		 * Seta velocidade da animacao
 		 * @param frameTime Tempo em (frame/seg)
