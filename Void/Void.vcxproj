@@ -13,7 +13,6 @@
   <ItemGroup>
     <ClInclude Include="inc\BlockTileSet.hpp" />
     <ClInclude Include="inc\Camera.hpp" />
-    <ClInclude Include="inc\Circle.hpp" />
     <ClInclude Include="inc\Collision.hpp" />
     <ClInclude Include="inc\Game.hpp" />
     <ClInclude Include="inc\GameObject.hpp" />
@@ -21,6 +20,7 @@
     <ClInclude Include="inc\Main.hpp" />
     <ClInclude Include="inc\MultiTileSet.hpp" />
     <ClInclude Include="inc\Music.hpp" />
+    <ClInclude Include="inc\Note.hpp" />
     <ClInclude Include="inc\NPC.hpp" />
     <ClInclude Include="inc\Player.hpp" />
     <ClInclude Include="inc\Point.hpp" />
@@ -36,11 +36,12 @@
     <ClInclude Include="inc\TileMap.hpp" />
     <ClInclude Include="inc\TileSet.hpp" />
     <ClInclude Include="inc\Timer.hpp" />
+    <ClInclude Include="inc\TristeState.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Note.cpp" />
     <ClCompile Include="src\BlockTileSet.cpp" />
     <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\Circle.cpp" />
     <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
@@ -63,6 +64,7 @@
     <ClCompile Include="src\TileMap.cpp" />
     <ClCompile Include="src\TileSet.cpp" />
     <ClCompile Include="src\Timer.cpp" />
+    <ClCompile Include="src\TristeState.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{82958224-CB42-4008-B7F2-5CADCDCC1BBE}</ProjectGuid>

@@ -59,11 +59,13 @@ class TileMap
 
 		/**
 		 * Renderiza camada especifica
-		 * @param layer   Numero da camada a ser renderiazada
-		 * @param cameraX Posicao X da camada
-		 * @param cameraY Posicao Y da camada
+		 * @param layer    Numero da camada a ser renderiazada
+		 * @param cameraX  Posicao X da camada
+		 * @param cameraY  Posicao Y da camada
+		 * @param parallax 1 = ativo
+		 *				   0 = desativado
 		 */
-		void RenderLayer( int layer, int cameraX = 0, int cameraY = 0 );
+		void RenderLayer(int layer, int cameraX = 0, int cameraY = 0, int parallax = 0);
 	/* Get/Set */
 	public:
 		/**

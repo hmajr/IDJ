@@ -34,8 +34,8 @@ class RealState :
 	/* CONSTANTES */
 	private:
 		/* GAME OBJECTS */
-		Point m_INIT_PLAYER_POS;
-		std::vector<Point> m_INIT_NPC_POS;
+		Point m_INIT_PLAYER_POS = Point(500, 500);
+		Point m_INIT_NPC_POS = Point(200,200);
 		const int m_NUM_NPC = 1;
 		/* MAP */
 		std::string m_REAL_LEVEL_MAP_PATH = "./map/RealWorld.txt";

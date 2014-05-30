@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cmath>
 #include <algorithm>
 
@@ -14,8 +16,8 @@
 using namespace Geometry;
 
 namespace GameEngine {
-class Collision {
-
+class Collision
+{
     public:
         static inline bool IsColliding( Rect& a,  Rect& b, float angleOfA, float angleOfB)
         {

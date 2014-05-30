@@ -139,13 +139,13 @@ namespace GameEngine {
 		 * Renderiza camada especifica do mapa
 		 * Faz o mesmo que Render, mas para uma layer só.
 		 */
-		void TileMap::RenderLayer( int layer, int cameraX, int cameraY )
+		void TileMap::RenderLayer( int layer, int cameraX, int cameraY, int parallax )
 		{
 			for(int j = 0; j < mapHeight; ++j) { //Linha
 				for(int i = 0; i < mapWidth; ++i) { //Coluna
 					this->tileSet->Render( this->At( i, j, layer ), //valor referencia para tileArray
-										   ( i*(this->tileSet->GetTileWidth()) + (cameraX*parallaxSpeed*(layer*2+1)) ), //pos X p/ renderizar
-										   ( j*(this->tileSet->GetTileHeight()) + (cameraY*parallaxSpeed*(layer*2+1)) ) ); //pos Y p/ renderizar
+										   ( i*(this->tileSet->GetTileWidth()) + parallax*(cameraX*parallaxSpeed*(layer*2+1)) ), //pos X p/ renderizar
+										   ( j*(this->tileSet->GetTileHeight()) + parallax*(cameraY*parallaxSpeed*(layer*2+1)) ) ); //pos Y p/ renderizar
 
 				}
 			}
