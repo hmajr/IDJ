@@ -1,0 +1,40 @@
+﻿Build started 29/05/2014 21:36:19.
+     1>Project "D:\Projetos\GIT\C++\IDJ\Void\Void\Void.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\SDL-2\SDL2-VC\include" /ID:\Projetos\GIT\C++\IDJ\Void\Void\inc /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt src\TristeState.cpp
+         TristeState.cpp
+     1>d:\projetos\git\c++\idj\void\void\inc\player.hpp(34): warning C4244: 'initializing' : conversion from 'float' to 'const int', possible loss of data
+     1>d:\projetos\git\c++\idj\void\void\src\tristestate.cpp(63): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Projetos\GIT\C++\IDJ\Void\Debug\Void.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SDL-2\SDL2-VC\lib\x86" SDL2.lib SDL2main.lib SDL2_image.lib SDL2_mixer.lib SDL2_ttf.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Projetos\GIT\C++\IDJ\Void\Debug\Void.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Projetos\GIT\C++\IDJ\Void\Debug\Void.lib" /MACHINE:X86 Debug\Note.obj
+         Debug\BlockTileSet.obj
+         Debug\Camera.obj
+         Debug\Collision.obj
+         Debug\Game.obj
+         Debug\GameObject.obj
+         Debug\InputManager.obj
+         Debug\Main.obj
+         Debug\MultiTileSet.obj
+         Debug\Music.obj
+         Debug\NPC.obj
+         Debug\Player.obj
+         Debug\Point.obj
+         Debug\RealState.obj
+         Debug\Rect.obj
+         Debug\Resource.obj
+         Debug\Sound.obj
+         Debug\Sprite.obj
+         Debug\State.obj
+         Debug\StateData.obj
+         Debug\StillAnimation.obj
+         Debug\Text.obj
+         Debug\TileMap.obj
+         Debug\TileSet.obj
+         Debug\Timer.obj
+         Debug\TristeState.obj
+         Void.vcxproj -> D:\Projetos\GIT\C++\IDJ\Void\Debug\Void.exe
+     1>Done Building Project "D:\Projetos\GIT\C++\IDJ\Void\Void\Void.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.92
