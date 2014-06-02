@@ -1,7 +1,5 @@
 #include "Sprite.hpp"
 
-using GameEngine::Sprite;
-
 namespace GameEngine {
 /* SPRITE CLASS */
 	/* Inicializacao */
@@ -10,107 +8,42 @@ namespace GameEngine {
 	/* CONSTRUTORES */
 	Sprite::Sprite() 
 	{
-		this->texture = NULL;
-        this->resource.userCount = 0;
-        this->resource.data.texture = this->texture;
-		this->SetFrameCount();
-		this->SetFrameTime();
+		
 	}
 	
-	Sprite::Sprite( std::string& file, int numFramesColunm, int numFramesLine, float frameTime )//Carrega textura do arquivo
-		:numFramesLine(numFramesLine), numFramesColunm( numFramesColunm )
+	Sprite::Sprite(  )//Carrega textura do arquivo
 	{
-        //num de frames
-        this->frameTime = frameTime;
-
-        
-		this->texture = NULL;
-        this->Open( file ); // carrega textura
-
-        this->frameCount = numFramesColunm * numFramesLine;
-
-		this->SetClip(0, 0, (this->dimensions.w / this->numFramesColunm), (this->dimensions.h / this->numFramesLine) );
+    
 	} 
 	
 	// destroy loaded sprite file 	
 	Sprite::~Sprite()
 	{
-        this->resource.userCount -= 1;
 	} 
 
 	/* METODOS */
 	// load image from file path	
 	void Sprite::Open( std::string& file )
 	{
-        this->resource.userCount += 1;
-		UnorderedSprite::const_iterator found = assetTable.find ( file );
-
-		if( found != assetTable.end() ){
-			this->texture = found->second;
-		}
-		else
-		{
-            if( NULL == ( this->texture = IMG_LoadTexture( Game::GetInstance().GetRenderer(), file.c_str() )) ){
-				std::cerr << "Loading Texture: " << SDL_GetError() << std::endl;
-				return;
-			}
-			
-            this->assetTable.emplace( file, this->texture ); //insere textura na tabela hash
-
-        }
-        SDL_QueryTexture( this->texture, NULL, NULL, &(this->dimensions.w), &(this->dimensions.h) );
-
-        /*resource*/
-        this->resource.data.texture = this->texture;
+       
 	}
 
 	// Set retangulo de recorte da imagem a ser renderizada
 	void Sprite::SetClip( int x, int y, int w, int h ) 
 	{
-		clipRect.x = x;
-		clipRect.y = y;
-		clipRect.w = w;
-		clipRect.h = h;
+
 	}
 
 	//UPDATE
 	void Sprite::Update( float dt )
 	{
-		this->timeElapsed += dt;
-
-		 //std::cout<<"TimeElapsed " << this->timeElapsed << std::endl;
-
-		if( this->timeElapsed >= this->frameTime )
-		{
-			currentFrame = (currentFrame + 1) % this->frameCount;
-
- std::cout<<"ENTROU IF ANIMATION, frame: " << this->currentFrame << std::endl;
- std::cout<<"FRAME, w: " << this->clipRect.w << std::endl;
-			// calcula posicao do retangulo de recorte
-			this->clipRect.x = (this->currentFrame % this->numFramesColunm ) * this->GetFrameWidth();
-			this->clipRect.y = (this->currentFrame / this->numFramesColunm ) * this->GetFrameHeight(); //% this->GetHeight();
-
-			this->timeElapsed = 0;
-		}
+		
 	}
 
 	// Renderiza texture na tela de jogo
 	void Sprite::Render( int x, int y, float angle, bool flip)
 	{
-		SDL_Rect dstrect;
-		angle = (angle*180)/PI;
-
-
-		dstrect.x = x * this->scaleX;
-		dstrect.y = y * this->scaleY;
 		
-		dstrect.w = clipRect.w * this->scaleX;
-		dstrect.h = clipRect.h * this->scaleY;
-		
-		// std::cout<< "clipRect W: "<< clipRect.w <<",H: " << clipRect.h <<std::endl;
-
-		SDL_RenderCopyEx( Game::GetInstance().GetRenderer(), this->texture, &clipRect, &dstrect,
-						  angle, NULL, (flip)? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE );
 	}
 
 	/* GET/SET */
@@ -119,13 +52,7 @@ namespace GameEngine {
 	 */
 	void Sprite::SetFrame( int frame )
 	{
-		if( (0 <= frame) && (this->frameCount > frame) )
-		{
-			currentFrame = frame;
-
-			clipRect.x = (currentFrame * numFramesLine) % this->GetWidth();
-			clipRect.y = (currentFrame / numFramesLine) * this->GetFrameHeight() % this->GetHeight();
-		}
+		
 	}
 
 	/**
@@ -183,14 +110,7 @@ namespace GameEngine {
 	 */
 	void Sprite::Clear()
 	{
-		for ( auto count = assetTable.begin(); count != assetTable.end(); ++count ){
-//            if( 0 == resource.userCount ){
-				SDL_DestroyTexture( count->second );
-//				assetTable.remove( count );
-//			}
-		}
 
-		//limpa vetor
 	}
 /* END - SPRITE CLASS */
 } // GameEngine

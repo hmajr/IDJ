@@ -14,11 +14,13 @@ namespace Objects
 class Player :
 		public GameObject
 {
-	/*typedef enum playerEnum
+	typedef enum playerEnum
 	{
 		IDLE = 0,
-		MOVING
-	}PlayerEnum;*/
+		MOVING_UP,
+		MOVING_DOWN,
+		MOVING_SIDE,
+	}PlayerEnum;
 
 	/* CONSTANTES */
 	/* SPRITE */
@@ -29,7 +31,7 @@ class Player :
 	const int m_TILE_WIDTH = 70;
 	const int m_TILE_HEIGHT = 140;
 	/* MOVIMENTACAO */
-	const float m_SPEED_MAX = 150.0f;
+	const float m_SPEED_MAX = 200.0f;
 	const float m_ACELERATION = 50.0f;
 	const int m_PLAYER_HP = 20.0f;
 	/* SOUNDS */
@@ -38,7 +40,7 @@ class Player :
 
 	/* ATRIBUTOS */
 	private:
-		//PlayerEnum playerState;
+		PlayerEnum playerState;
 		Point speed;
 		float hitPoints;
 		Sprite &currentAnimation, idleAnim, walkSide, walkUp, walkDown;

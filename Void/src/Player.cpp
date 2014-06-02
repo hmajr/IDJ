@@ -34,39 +34,57 @@ namespace Objects
 	void Player::Update(float dt)
 	{
 		/* MOVIMENTACAO */
-		if ((InputManager::GetInstance()).IsKeyDown(A_KEY)) {
-			this->speed.x -= m_ACELERATION*dt;
+		if ((InputManager::GetInstance()).IsKeyDown(A_KEY) ) 
+		{
+			if ( this->playerState != MOVING_SIDE ){
+				//set animation
+				this->currentAnimation = this->walkSide;
+				this->currentAnimation.SetFrame();
+				this->playerState = MOVING_SIDE;
+			}
+			//atualiza posicao;
+			this->speed.x -= m_ACELERATION * dt;
+			// this->speed.y += m_ACELERATION * dt;
 			this->isFlipped = true;
-			//set animation
-			this->currentAnimation = this->walkSide;
 		}
 		else if ((InputManager::GetInstance()).IsKeyDown(D_KEY)) {
-			this->speed.x += m_ACELERATION*dt;
+			if (this->playerState != MOVING_SIDE){
+				//set animation
+				this->currentAnimation = this->walkSide;
+				this->currentAnimation.SetFrame();
+				this->playerState = MOVING_SIDE;
+			}
+
+			//atualiza posicao;
+			this->speed.x += m_ACELERATION * dt;
+			// this->speed.y += m_ACELERATION * dt;
 			this->isFlipped = false;
-			//set animation
-			this->currentAnimation = this->walkSide;
 		}
 
 		if ((InputManager::GetInstance()).IsKeyDown(W_KEY)) {
-			this->speed.y -= m_ACELERATION*dt;
-			//set animation UP
-			this->currentAnimation = this->walkUp;
+			if (this->playerState != MOVING_UP){
+				//set animation
+				this->currentAnimation = this->walkUp;
+				this->currentAnimation.SetFrame();
+				this->playerState = MOVING_UP;
+			}
+			//atualiza posicao;
+			// this->speed.x += m_ACELERATION * dt;
+			this->speed.y -= m_ACELERATION * dt;
+			
 		}
 		else if ((InputManager::GetInstance()).IsKeyDown(S_KEY)) {
-			this->speed.y += m_ACELERATION*dt;
-			//set animation DOWN
-			this->currentAnimation = this->walkDown;
+			if (this->playerState != MOVING_DOWN){
+				//set animation
+				this->currentAnimation = this->walkDown;
+				this->currentAnimation.SetFrame();
+				this->playerState = MOVING_DOWN;
+			}
+			//atualiza posicao;
+			// this->speed.x += m_ACELERATION * dt;
+			this->speed.y += m_ACELERATION * dt;
 		}
-		if ((InputManager::GetInstance()).IsKeyDown(A_KEY) ||
-			(InputManager::GetInstance()).IsKeyDown(D_KEY) ||
-			(InputManager::GetInstance()).IsKeyDown(W_KEY) ||
-			(InputManager::GetInstance()).IsKeyDown(S_KEY) )
-		{
-			//set animation IDLE
-			this->currentAnimation = this->idleAnim;
-			this->speed = (0, 0);
-			this->currentAnimation.SetFrame();
-		}
+		
 		this->box.x += this->speed.x;
 		this->box.y += this->speed.y;
 		

@@ -32,7 +32,7 @@ class Sprite
         float timeElapsed; //tempo transcorrido desde ultimo frame
         float frameTime; //segundos por frame
         int numFramesLine; // numero de frames por linha
-         int numFramesColunm; //numero de frames por coluna
+		int numFramesColunm; //numero de frames por coluna
 
 
 		
